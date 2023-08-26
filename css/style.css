@@ -1,0 +1,106 @@
+body {
+  margin-top: 70px;
+}
+
+input {
+  margin-top: 30px;
+}
+
+.container {
+  background-color: #bbe4e9;
+  border-radius: 20px;
+  max-width: 70%;
+}
+
+.current {
+  margin-top: 30px;
+  position: relative;
+  left: 30%;
+}
+
+.fa-sun {
+  font-size: 70px;
+  padding: 0 10px;
+}
+
+#weather-description {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0 10px;
+}
+
+#current-temp {
+  font-size: 42px;
+  font-weight: 500;
+  position: absolute;
+  left: 8%;
+  top: -5%;
+}
+
+.units {
+  font-size: 22px;
+  font-weight: 500;
+  position: relative;
+  right: 10px;
+  bottom: 15px;
+}
+
+.meteorology {
+  font-size: 14px;
+  position: absolute;
+  left: 8%;
+  bottom: 2%;
+}
+
+#current-location {
+  position: absolute;
+  left: 25%;
+  top: 0;
+}
+
+#current-city {
+  font-size: 40px;
+}
+
+#current-date {
+  font-size: 16px;
+  text-align: right;
+}
+
+#future {
+  margin-top: 5%;
+}
+
+#future-days {
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 28%;
+  padding-bottom: 10px;
+  padding-right: 36%;
+}
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+
+.col {
+  margin-bottom: 30px;
+  margin-top: 25px;
+}
+
+.day {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.weather-icon {
+  font-size: 24px;
+  text-align: center;
+}
+
+.high-low-temp {
+  margin-top: 10px;
+}
