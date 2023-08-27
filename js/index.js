@@ -78,7 +78,7 @@ function getCityData(position) {
   let longitude = position.coords.longitude;
   let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
   let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  let cityNameUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  let cityNameUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
   axios.get(cityNameUrl).then(displayCityName);
   axios.get(weatherUrl).then(displayWeatherInfo);
