@@ -9,7 +9,6 @@ input {
 .container {
   background-color: #bbe4e9;
   border-radius: 20px;
-  max-width: 70%;
 }
 
 .current {
@@ -87,7 +86,7 @@ input {
 }
 
 .col {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   margin-top: 25px;
 }
 
@@ -103,4 +102,10 @@ input {
 
 .high-low-temp {
   margin-top: 10px;
+}
+
+#coder {
+  font-size: 14px;
+  padding-bottom: 20px;
+  text-align: center;
 }
