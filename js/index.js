@@ -24,8 +24,9 @@ if (minutes < 10) {
   var paddedMinutes = `${minutes}`;
 }
 
-let currentDate = document.querySelector("#current-date");
-currentDate.innerHTML = `${day} ${paddedHour}:${paddedMinutes}`;
+document.querySelector(
+  "#current-date"
+).innerHTML = `${day} ${paddedHour}:${paddedMinutes}`;
 
 function searchCity(event) {
   event.preventDefault();
@@ -48,29 +49,26 @@ let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", searchCity);
 
 function displayCityName(response) {
-  let cityName = response.data[0].name;
-  let currentCityNameElement = document.querySelector("#current-city");
-  currentCityNameElement.innerHTML = cityName;
+  document.querySelector("#current-city").innerHTML = response.data[0].name;
 }
 
 function displayWeatherInfo(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = temperature;
+  document.querySelector("#current-city").innerHTML = response.data.name;
 
-  let pressure = Math.round(response.data.main.pressure);
-  let pressureElement = document.querySelector("#pressure-amount");
-  pressureElement.innerHTML = pressure;
-
-  let humidity = Math.round(response.data.main.humidity);
-  let humidityElement = document.querySelector("#humidity-amount");
-  humidityElement.innerHTML = humidity;
-
-  let weatherDescription = response.data.weather[0].main;
-  let weatherDescriptionElement = document.querySelector(
-    "#weather-description"
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
   );
-  weatherDescriptionElement.innerHTML = weatherDescription;
+
+  document.querySelector("#wind-speed").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+
+  document.querySelector("#humidity-amount").innerHTML = Math.round(
+    response.data.main.humidity
+  );
+
+  document.querySelector("#weather-description").innerHTML =
+    response.data.weather[0].main;
 }
 
 function getCityData(position) {
