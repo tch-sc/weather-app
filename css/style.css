@@ -17,15 +17,12 @@ a {
   border-radius: 20px;
 }
 
-#current-weather-icon {
-  display: block;
-  text-align: center;
-}
-
 #current-weather-description {
   font-size: 24px;
   font-weight: 600;
   padding: 0 10px;
+  position: relative;
+  bottom: 6px;
 }
 
 ul {
