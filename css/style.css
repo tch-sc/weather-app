@@ -34,7 +34,6 @@ ul {
 }
 
 li {
-  font-size: 20px;
   list-style: none;
 }
 
@@ -47,14 +46,14 @@ li {
   font-weight: 500;
 }
 
+#current-weather {
+  font-size: 14px;
+}
+
 .units {
   position: relative;
   font-size: 18px;
   top: -15px;
-}
-
-.meteorology {
-  font-size: 10px;
 }
 
 #current-city {

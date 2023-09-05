@@ -28,25 +28,30 @@ document.querySelector(
   "#current-date"
 ).innerHTML = `${day} ${paddedHour}:${paddedMinutes}`;
 
-function searchCity(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#enter-city-name");
-  let cityInputText = cityInputElement.value;
-
-  if (cityInputText === "") {
-    return;
-  }
-
-  let currentCityElement = document.querySelector("#current-city");
-  currentCityElement.innerHTML = cityInputText;
-
+function search(city) {
   let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
-  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInputText}&appid=${apiKey}&units=metric`;
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(weatherUrl).then(displayWeatherInfo);
 }
 
+search("Montreal");
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#enter-city-name").value;
+  let apiKey = "97c2f6a3b34509ac62090edc5d18d949";
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInputElement}&appid=${apiKey}&units=metric`;
+  axios.get(weatherUrl).then(displayWeatherInfo);
+
+  if (cityInputElement === "") {
+    return;
+  }
+
+  document.querySelector("#current-city").innerHTML = cityInputElement;
+}
+
 let searchForm = document.querySelector("#city-search-form");
-searchForm.addEventListener("submit", searchCity);
+searchForm.addEventListener("submit", handleSubmit);
 
 function displayCityName(response) {
   document.querySelector("#current-city").innerHTML = response.data[0].name;
