@@ -47,6 +47,11 @@ li {
   font-size: 14px;
 }
 
+#current-weather .active {
+  color: black;
+  cursor: default;
+}
+
 .units {
   position: relative;
   font-size: 18px;

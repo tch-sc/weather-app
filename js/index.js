@@ -34,8 +34,6 @@ function search(city) {
   axios.get(weatherUrl).then(displayWeatherInfo);
 }
 
-search("Montreal");
-
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#enter-city-name").value;
@@ -59,6 +57,8 @@ function displayCityName(response) {
 
 function displayWeatherInfo(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
+
+  celsiusTemperature = response.data.main.temp;
 
   document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -101,3 +101,32 @@ function findCurrentCity(event) {
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", findCurrentCity);
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  currentTemperature = document.querySelector(
+    "#current-temperature"
+  ).innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  currentTemperature = document.querySelector(
+    "#current-temperature"
+  ).innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsius);
+
+search("Montreal");
