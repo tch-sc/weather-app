@@ -55,20 +55,27 @@ function displayCityName(response) {
 function displayWeatherInfo(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
 
-  document.querySelector("#temperature").innerHTML = Math.round(
+  document.querySelector("#current-temperature").innerHTML = Math.round(
     response.data.main.temp
   );
 
-  document.querySelector("#wind-speed").innerHTML = Math.round(
+  document.querySelector("#current-wind-speed").innerHTML = Math.round(
     response.data.wind.speed
   );
 
-  document.querySelector("#humidity-amount").innerHTML = Math.round(
+  document.querySelector("#current-humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
 
-  document.querySelector("#weather-description").innerHTML =
+  document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].main;
+
+  document
+    .querySelector("#current-weather-icon")
+    .setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 function getCityData(position) {

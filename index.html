@@ -19,115 +19,129 @@
   </head>
   <body>
     <div class="container">
-      <div class="d-flex justify-content-center">
-        <form id="city-search-form">
-          <input
-            autofocus="on"
-            id="enter-city-name"
-            placeholder="Enter City Name"
-            size="30"
-            type="text"
-          />
-          <input type="submit" value="Search" />
-          <span id="current-location-button"
-            ><input type="submit" value="Current"
-          /></span>
-        </form>
-      </div>
-      <div class="current">
-        <span id="current-weather-icon"
-          ><img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="sunny cloud"
-        /></span>
-        <br />
-        <span id="weather-description">Sunny</span>
-        <div id="current-temp">
-          <span id="temperature">30</span>
-          <span class="units">
-            <a href="#" id="celsius">°C</a> |
-            <a href="#" id="fahrenheit">°F</a>
-          </span>
-        </div>
-        <div class="meteorology">
-          <span id="humidity"
-            >Humidity: <span id="humidity-amount">20</span
-            ><span id="humidty-unit">%</span></span
-          >
-          <br />
-          <span id="wind"
-            >Wind Speed: <span id="wind-speed">20</span
-            ><span id="wind-unit"> km/h</span></span
-          >
-        </div>
-        <div id="current-location">
-          <div id="current-city">Vancouver</div>
-          <div id="current-date">Thursday 12:00pm</div>
-        </div>
-      </div>
-      <div id="future">
-        <span id="future-days">Next 7 Days</span>
-        <div class="container text-center">
-          <div class="container text-auto">
-            <div class="row row-cols-auto">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="overview">
+            <div class="d-flex justify-content-center">
+              <form id="city-search-form">
+                <input
+                  autofocus="on"
+                  id="enter-city-name"
+                  placeholder="Enter City Name"
+                  size="30"
+                  type="text"
+                />
+                <input type="submit" value="Search" />
+                <span id="current-location-button"
+                  ><input type="submit" value="Current"
+                /></span>
+              </form>
+            </div>
+            <div class="row">
               <div class="col">
-                <div class="day"><p>Fri</p></div>
-                <i class="fa-solid fa-cloud weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>23°</strong> 16°</p>
-                </div>
+                <ul>
+                  <li>
+                    <img
+                      src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                      alt="sunny cloud"
+                      id="current-weather-icon"
+                    />
+                  </li>
+                  <li id="current-weather-description">Sunny</li>
+                </ul>
+              </div>
+              <div class="col meteorology" id="current-weather">
+                <ul>
+                  <li>
+                    <strong><span id="current-temperature">30</span></strong>
+                    <span class="units">
+                      <a href="#" id="celsius">°C</a> |
+                      <a href="#" id="fahrenheit">°F</a>
+                    </span>
+                  </li>
+                  <li>
+                    <span id="humidity-amount">Humidity: </span
+                    ><span id="current-humidity">20</span>%
+                  </li>
+                  <li>
+                    <span id="wind-amount">Wind Speed: </span
+                    ><span id="current-wind-speed">15</span> km/h
+                  </li>
+                </ul>
               </div>
               <div class="col">
-                <div class="day"><p>Sat</p></div>
-                <i class="fa-solid fa-cloud-showers-heavy weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>20°</strong> 14°</p>
-                </div>
+                <ul>
+                  <li id="current-city">Vancouver</li>
+                  <li id="current-date">Saturday 11:00</li>
+                </ul>
               </div>
-              <div class="col">
-                <div class="day"><p>Sun</p></div>
-                <i class="fa-solid fa-cloud-showers-heavy weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>20°</strong> 14°</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="day"><p>Mon</p></div>
-                <i class="fa-solid fa-cloud-sun weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>25°</strong> 18°</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="day"><p>Tue</p></div>
-                <i class="fa-solid fa-cloud weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>24°</strong> 16°</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="day"><p>Wed</p></div>
-                <i class="fa-solid fa-cloud weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>24°</strong> 15°</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="day"><p>Thu</p></div>
-                <i class="fa-solid fa-cloud-sun weather-icon"></i>
-                <div class="high-low-temp">
-                  <p><strong>25°</strong> 17°</p>
+            </div>
+          </div>
+          <div id="future">
+            <span id="future-days">Next 7 Days</span>
+            <div class="container text-center">
+              <div class="container text-auto">
+                <div class="row row-cols-auto">
+                  <div class="col">
+                    <div class="day"><p>Fri</p></div>
+                    <i class="fa-solid fa-cloud weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>23°</strong> 16°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Sat</p></div>
+                    <i class="fa-solid fa-cloud-showers-heavy weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>20°</strong> 14°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Sun</p></div>
+                    <i class="fa-solid fa-cloud-showers-heavy weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>20°</strong> 14°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Mon</p></div>
+                    <i class="fa-solid fa-cloud-sun weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>25°</strong> 18°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Tue</p></div>
+                    <i class="fa-solid fa-cloud weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>24°</strong> 16°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Wed</p></div>
+                    <i class="fa-solid fa-cloud weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>24°</strong> 15°</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="day"><p>Thu</p></div>
+                    <i class="fa-solid fa-cloud-sun weather-icon"></i>
+                    <div class="high-low-temp">
+                      <p><strong>25°</strong> 17°</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div id="coder">
+            This was created by Tracy C and is
+            <a href="https://github.com/tch-sc/weather-app" target="_blank"
+              >open-sourced on GitHub</a
+            >
+          </div>
         </div>
-      </div>
-      <div id="coder">
-        This was created by Tracy C and is
-        <a href="https://github.com/tch-sc/weather-app" target="_blank"
-          >open-sourced on GitHub</a
-        >
       </div>
     </div>
     <script src="js/index.js"></script>
