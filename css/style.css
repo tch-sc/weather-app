@@ -21,8 +21,7 @@ a {
   left: 30%;
 }
 
-.fa-sun {
-  font-size: 70px;
+#current-weather-icon {
   padding: 0 10px;
 }
 
