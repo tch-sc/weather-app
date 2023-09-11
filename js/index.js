@@ -28,26 +28,37 @@ document.querySelector(
   "#current-date"
 ).innerHTML = `${day} ${paddedHour}:${paddedMinutes}`;
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class = row>`;
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `<div class="col">
-        <div class="day"><p>${day}</p></div>
+        <div class="day"><p>${formatDay(forecastDay.dt)}</p></div>
         <img
-          src="https://openweathermap.org/img/wn/02d@2x.png"
+          src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt="sunny cloud"
           width="56"
           class="weather-icon"
         />
         <div>
-          <span class="high-temp"><strong>20°</strong></span>
-          <span class="low-temp">14°</span>
+          <span class="high-temp"><strong>${Math.round(
+            forecastDay.temp.max
+          )}°</strong></span>
+          <span class="low-temp">${Math.round(forecastDay.temp.min)}°</span>
         </div>
       </div>`;
   });
@@ -166,4 +177,3 @@ let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsius);
 
 search("Montreal");
-displayForecast();
